@@ -19,9 +19,10 @@ This section will be kept up to date.
 Available :
 - Switch from dashboard to search page (and vice-versa) from the left menu or the dashboard tile
 - Fetch all products from the API and DB onto the search page
+- Search products by vendor
 
 Next : 
-- Search functionality and parameters
+- All search parameters
 - All dashboard sections and tiles completed
 - Access to product card
 

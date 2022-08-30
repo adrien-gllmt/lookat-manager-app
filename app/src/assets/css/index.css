@@ -284,6 +284,31 @@ header nav a h3 {
   font-weight: lighter;
   font-size: 2rem;
 }
+.search-section .search-field {
+  display: flex;
+  height: 44px;
+}
+.search-section .search-field label {
+  height: 100%;
+  background-color: #F0F3F5;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border-radius: 10px 0 0 10px;
+}
+.search-section .search-field label p {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.search-section .search-field input {
+  outline: none;
+  border: none;
+  padding: 0 15px;
+  font-size: 1rem;
+  border-radius: 0 10px 10px 0;
+}
 
 .search-result {
   overflow-y: auto;

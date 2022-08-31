@@ -6,11 +6,11 @@ import Search from "../components/Search";
 
 function AppRouter() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={'/lookat-manager'}>
             <>
                 <Menu />
                 <Routes>
-                    <Route element={<Dashboard/>} path="/" exact={true} />
+                    <Route element={<Dashboard/>} path="/" />
                     <Route element={<Search/>} path={"/search"} />
                     <Route element={<Navigate to="/" />} />
                 </Routes>

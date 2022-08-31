@@ -15,7 +15,10 @@ module.exports = (sequelize, Sequelize) => {
         product_ref: {
             type: DataTypes.STRING
         },
-        product_color: {
+        product_color_code: {
+            type: DataTypes.STRING
+        },
+        product_color_name: {
             type: DataTypes.STRING
         },
         product_size: {
@@ -39,6 +42,8 @@ module.exports = (sequelize, Sequelize) => {
         product_booked: {
             type: DataTypes.INTEGER
         },
+    }, {
+        timestamps: false,
     });
     return Product;
 };

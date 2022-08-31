@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 let corsOptions = {
-    origin: "http://localhost:3000"
+    origin: ["http://localhost:3000", "https://www.adrien-guillemot.fr", "https://adrien-guillemot.fr", "https://dev.adrien-guillemot.fr"]
 };
 
 app.use(cors(corsOptions));
@@ -16,14 +16,14 @@ app.get("/", (req, res) => {
 });
 
 const db = require("./api/models");
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     console.log("Drop and re-sync db.");
 });
 
 require("./api/routes/product.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8090;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });

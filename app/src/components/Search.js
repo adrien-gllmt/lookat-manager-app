@@ -7,7 +7,27 @@ export default function Search() {
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
 
+    async function getData() {
+        try {
+            const response = await axios.get(
+                `http://localhost:8090/api/products`
+            );
+            console.log(response);
+            setData(response.data);
+            setError(null);
+        } catch (err) {
+            setError(err.message);
+            setData(null);
+        } finally {
+            setLoading(false);
+        }
+    }
+
     const filterProducts = (data, searchQuery) => {
+        if (error) {
+            return;
+        }
+
         if (!searchQuery) {
             return data;
         }
@@ -21,21 +41,6 @@ export default function Search() {
 
 
     useEffect(() => {
-        async function getData() {
-            try {
-                const response = await axios.get(
-                    `http://localhost:8080/api/products`
-                );
-                console.log(response);
-                setData(response.data);
-                setError(null);
-            } catch (err) {
-                setError(err.message);
-                setData(null);
-            } finally {
-                setLoading(false);
-            }
-        }
         getData().then()
     }, []);
 
@@ -49,7 +54,10 @@ export default function Search() {
                     <label>
                         <p className={"search-field-name"}>FOURNISSEUR</p>
                     </label>
-                    <input type="search" placeholder="Search.." value={searchQuery} onInput={e => setSearchQuery(e.target.value)}/>
+                    <input type="search" placeholder="Search.." value={searchQuery} onInput={(e) => {
+                        setSearchQuery(e.target.value);
+                        getData().then();
+                    }}/>
                 </div>
             </section>
 
@@ -72,12 +80,12 @@ export default function Search() {
                     </thead>
 
                     <tbody>
-                    {data && filteredProducts.map(({ product_id, product_vendor, product_brand, product_ref, product_color, product_size, product_gender, product_material, product_type, product_style, product_avail, product_booked }) => (
+                    {data && filteredProducts.map(({ product_id, product_vendor, product_brand, product_ref, product_color_code, product_color_name, product_size, product_gender, product_material, product_type, product_style, product_avail, product_booked }) => (
                         <tr key={product_id}>
                             <td>{product_vendor}</td>
                             <td>{product_brand}</td>
                             <td>{product_ref}</td>
-                            <td>{product_color}</td>
+                            <td>{product_color_code} / {product_color_name}</td>
                             <td>{product_size}</td>
                             <td>{product_gender}</td>
                             <td>{product_material}</td>
@@ -89,6 +97,18 @@ export default function Search() {
                     ))}
                     </tbody>
                 </table>
+                {loading &&
+                    <div className={"loading"}>
+                        <div className="lds-ellipsis">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    Chargement...
+                    </div>
+                }
+                {error && (<div className={"error"}>Une erreur est survenue lors du chargement des données - <span className={"search-error"}>{error}</span></div>)}
             </section>
         </div>
     );

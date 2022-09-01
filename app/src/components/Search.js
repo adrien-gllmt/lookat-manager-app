@@ -1,11 +1,12 @@
 import axios from "axios"
 import {useEffect, useState} from "react";
+import Loader from "./Loader";
 
 export default function Search() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchVendor, setSearchVendor] = useState('');
 
     async function getData() {
         try {
@@ -23,22 +24,21 @@ export default function Search() {
         }
     }
 
-    const filterProducts = (data, searchQuery) => {
+    const filterProducts = (data, searchVendor) => {
         if (error) {
             return;
         }
 
-        if (!searchQuery) {
+        if (!searchVendor) {
             return data;
         }
 
         return data.filter((product) => {
-            const postName = product.product_vendor.toLowerCase();
-            return postName.includes(searchQuery.toLowerCase());
+            const productVendor = product.product_vendor.toLowerCase();
+            return productVendor.includes(searchVendor.toLowerCase());
         });
     };
-    const filteredProducts = filterProducts(data, searchQuery);
-
+    const filteredProducts = filterProducts(data, searchVendor);
 
     useEffect(() => {
         getData().then()
@@ -54,8 +54,8 @@ export default function Search() {
                     <label>
                         <p className={"search-field-name"}>FOURNISSEUR</p>
                     </label>
-                    <input type="search" placeholder="Search.." value={searchQuery} onInput={(e) => {
-                        setSearchQuery(e.target.value);
+                    <input type="search" placeholder="Search.." value={searchVendor} onInput={(e) => {
+                        setSearchVendor(e.target.value);
                         getData().then();
                     }}/>
                 </div>
@@ -99,12 +99,7 @@ export default function Search() {
                 </table>
                 {loading &&
                     <div className={"loading"}>
-                        <div className="lds-ellipsis">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
+                        <Loader />
                     Chargement...
                     </div>
                 }

@@ -1,4 +1,71 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400&display=swap");
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #9BE7FF;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
 :root {
   font-size: 16px;
 }
@@ -185,11 +252,92 @@ header nav a h3 {
   flex-direction: column;
 }
 
-.atelier, .search-section {
+.atelier {
+  height: 32.3148148148%;
+  width: 100%;
+  background-color: #9BE7FF;
+  padding: 1.9% 40px 20px 40px;
+}
+
+.search-section {
   height: 32.3148148148%;
   width: 100%;
   background-color: #9BE7FF;
   padding: 1.9% 20px 20px 20px;
+}
+
+.atelier {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.atelier .table-container {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: 100%;
+  justify-content: space-between;
+}
+.atelier button {
+  cursor: pointer;
+  background-color: #88e2fd;
+  border: 1px solid #6db1ff;
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+  padding: 3px 20px;
+  border-radius: 15px;
+  width: max-content;
+}
+.atelier button:hover {
+  background-color: #88ccfd;
+}
+.atelier h2 {
+  font-family: Dosis, sans-serif;
+  font-weight: lighter;
+  font-size: 2rem;
+  height: 15%;
+}
+.atelier .workshop {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  justify-content: space-between;
+}
+.atelier table {
+  border-collapse: collapse;
+  height: max-content;
+}
+.atelier table tr {
+  border: none;
+  height: 40px;
+}
+.atelier table tr th {
+  font-family: Inter, sans-serif;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: left;
+}
+.atelier table tr th, .atelier table tr td {
+  border-right: solid 1px white;
+  text-align: left;
+}
+.atelier table tr th:last-child, .atelier table tr td:last-child {
+  border-right: none;
+}
+.atelier table tr td {
+  width: max-content;
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+  font-weight: normal;
+}
+.atelier table tr td:last-child {
+  padding-left: 20px;
+}
+.atelier table tr td:first-child {
+  padding-right: 20px;
+}
+.atelier table tr th {
+  border: none;
 }
 
 .dashboard, .search-result {
@@ -218,6 +366,67 @@ header nav a h3 {
   height: 287px;
   background-color: white;
   border-radius: 10px;
+}
+
+.informations {
+  padding: 20px;
+  display: flex;
+}
+.informations h2 {
+  font-family: Dosis, sans-serif;
+  font-weight: lighter;
+  font-size: 2rem;
+  height: 20%;
+}
+.informations p {
+  font-size: 1.25rem;
+  font-family: Inter, sans-serif;
+  margin: 0;
+}
+.informations .display-informations {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+}
+.informations .today-chart {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: flex-end;
+}
+.informations .shop-stats {
+  height: 100%;
+  width: 60%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+.informations .shop-stats thead th {
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+  font-weight: normal;
+  text-align: center;
+}
+.informations .shop-stats td {
+  font-size: 1.5rem;
+  font-family: Inter, sans-serif;
+  font-weight: normal;
+  text-align: center;
+}
+.informations .shop-stats td:first-child {
+  padding-right: 7%;
+  text-align: right;
+}
+.informations .shop-stats td:nth-child(2) {
+  background-color: #F0F3F5;
+  border-radius: 10px 0 0 10px;
+  width: 25%;
+}
+.informations .shop-stats td:last-child {
+  background-color: #F0F3F5;
+  border-radius: 0 10px 10px 0;
+  width: 25%;
 }
 
 .tiles-container {
@@ -265,18 +474,141 @@ header nav a h3 {
 .appointment {
   height: 287px;
   width: 287px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: auto;
-  gap: 20px;
-  background-color: #212738;
+  background-color: white;
   border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.appointment h2 {
+  font-family: Dosis, sans-serif;
+  font-weight: lighter;
+  font-size: 2rem;
+  margin-bottom: 8%;
+}
+.appointment p {
+  font-size: 1.25rem;
+  font-family: Inter, sans-serif;
+  margin: 0;
+}
+
+.manage-stock {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.manage-stock h2 {
+  font-family: Dosis, sans-serif;
+  font-weight: lighter;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.manage-stock p {
+  font-size: 1.25rem;
+  font-family: Inter, sans-serif;
+  margin: 0;
+}
+.manage-stock .stock-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 0;
+}
+.manage-stock .display-stock-state {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.manage-stock .display-stock-state div {
+  width: max-content;
+  background-color: #F0F3F5;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.manage-stock .display-stock-state div p {
+  font-size: 1.5rem;
 }
 
 .booked {
+  padding: 20px;
   flex-grow: 1;
   background-color: white;
   border-radius: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.booked h2 {
+  font-size: 2rem;
+  font-family: Dosis, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: lighter;
+  text-align: center;
+}
+.booked table {
+  width: 100%;
+  height: max-content;
+  max-height: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+}
+.booked table tr {
+  border: none;
+  height: 50px;
+}
+.booked table tr th {
+  font-size: 1.5rem;
+  font-family: Inter, sans-serif;
+  font-weight: normal;
+}
+.booked table tr th, .booked table tr td {
+  border-right: solid 1px #F0F3F5;
+  padding: 0 30px;
+  text-align: center;
+}
+.booked table tr th:last-child, .booked table tr td:last-child {
+  border-right: none;
+  width: 28%;
+  padding-right: 10px;
+}
+.booked table tr td:first-child {
+  text-align: left;
+}
+.booked table tr th:first-child, .booked table tr td:first-child {
+  padding-left: 10px;
+}
+.booked table tr td {
+  width: max-content;
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+  font-weight: normal;
+}
+.booked table tr td span {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+}
+.booked table tr td .res-ready, .booked table tr td .res-pending, .booked table tr td .res-todo {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+}
+.booked table tr td .res-ready {
+  background-color: #98EB8A;
+}
+.booked table tr td .res-pending {
+  background-color: #FFB951;
+}
+.booked table tr td .res-todo {
+  background-color: #FF2222;
 }
 
 .search-section h2 {
@@ -343,66 +675,6 @@ header nav a h3 {
 }
 .search-result .search-error {
   color: #ff0000;
-}
-.search-result .loading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.search-result .lds-ellipsis {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.search-result .lds-ellipsis div {
-  position: absolute;
-  top: 33px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: #9BE7FF;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
-}
-.search-result .lds-ellipsis div:nth-child(1) {
-  left: 8px;
-  animation: lds-ellipsis1 0.6s infinite;
-}
-.search-result .lds-ellipsis div:nth-child(2) {
-  left: 8px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-.search-result .lds-ellipsis div:nth-child(3) {
-  left: 32px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-.search-result .lds-ellipsis div:nth-child(4) {
-  left: 56px;
-  animation: lds-ellipsis3 0.6s infinite;
-}
-@keyframes lds-ellipsis1 {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-@keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(24px, 0);
-  }
 }
 
 /*# sourceMappingURL=index.css.map */

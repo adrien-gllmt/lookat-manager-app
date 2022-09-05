@@ -612,9 +612,17 @@ header nav a h3 {
 }
 
 .search-section h2 {
+  height: 20%;
   font-family: Dosis, sans-serif;
   font-weight: lighter;
   font-size: 2rem;
+}
+.search-section .input-container {
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
 }
 .search-section .search-field {
   display: flex;

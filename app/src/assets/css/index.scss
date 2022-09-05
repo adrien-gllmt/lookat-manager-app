@@ -631,9 +631,18 @@ header {
 
 .search-section {
   h2 {
+    height: 20%;
     font-family: Dosis, sans-serif;
     font-weight: lighter;
     font-size: 2rem;
+  }
+
+  .input-container {
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
   }
 
   .search-field {

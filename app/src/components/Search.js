@@ -1,6 +1,7 @@
 import axios from "axios"
 import {useEffect, useState} from "react";
 import Loader from "./Loader";
+import { normalizeStr } from "../utils";
 
 export default function Search() {
     const [data, setData] = useState(null);
@@ -40,16 +41,16 @@ export default function Search() {
         }
 
         return data.filter((product) => {
-            const productVendor = product.product_vendor.toLowerCase();
-            const productBrand = product.product_brand.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            const productRef = product.product_ref.toLowerCase();
-            const productColor = product.product_color_code.toLowerCase() && product.product_color_name.toLowerCase();
-            const productSize = product.product_size.toLowerCase();
-            const productGender = product.product_gender.toLowerCase();
-            const productMaterial = product.product_material.toLowerCase();
-            const productType = product.product_type.toLowerCase();
-            const productStyle = product.product_style.toLowerCase();
-            return productVendor.includes(searchVendor.toLowerCase()) && productBrand.includes(searchBrand.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) && productRef.includes(searchRef.toLowerCase())  && productColor.includes(searchColor.toLowerCase()) && productSize.includes(searchSize.toLowerCase()) && productGender.includes(searchGender.toLowerCase()) && productMaterial.includes(searchMaterial.toLowerCase()) && productType.includes(searchType.toLowerCase()) && productStyle.includes(searchStyle.toLowerCase());
+            const productVendor = normalizeStr(product.product_vendor);
+            const productBrand = normalizeStr(product.product_brand);
+            const productRef = normalizeStr(product.product_ref);
+            const productColor = normalizeStr(product.product_color_code) && normalizeStr(product.product_color_name);
+            const productSize = normalizeStr(product.product_size);
+            const productGender = normalizeStr(product.product_gender);
+            const productMaterial = normalizeStr(product.product_material);
+            const productType = normalizeStr(product.product_type);
+            const productStyle = normalizeStr(product.product_style);
+            return productVendor.includes(normalizeStr(searchVendor)) && productBrand.includes(normalizeStr(searchBrand)) && productRef.includes(normalizeStr(searchRef)) && productColor.includes(normalizeStr(searchColor)) && productSize.includes(normalizeStr(searchSize)) && productGender.includes(normalizeStr(searchGender)) && productMaterial.includes(normalizeStr(searchMaterial)) && productType.includes(normalizeStr(searchType)) && productStyle.includes(normalizeStr(searchStyle));
         });
     };
     const filteredProducts = filterProducts(data, searchVendor, searchBrand, searchRef, searchColor, searchSize, searchGender, searchMaterial, searchType, searchStyle);

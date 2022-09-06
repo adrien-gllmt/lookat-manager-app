@@ -22,9 +22,9 @@ Available :
 - Fetch all products from the API and DB onto the search page
 - Search products by vendor
 - All dashboard sections and tiles completed (mostly dummy right now & needs minor adjustments)
+- All search filters available
 
-Next : 
-- All search parameters
+Next :
 - Access to product card
 
 Planned :

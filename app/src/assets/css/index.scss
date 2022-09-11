@@ -32,13 +32,23 @@ code {
   monospace;
 }
 
+#root {
+  display: flex;
+}
+
 h2 {
   margin: 0;
   padding: 0;
+  font-family: 'Dosis', sans-serif;
+  font-size: 2rem;
+  font-weight: lighter;
+  text-transform: uppercase;
 }
 
-#root {
-  display: flex;
+p {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  margin: 0;
 }
 
 header {
@@ -69,13 +79,9 @@ header {
         gap: 15px;
 
         h2 {
-          font-size: 2rem;
-          font-family: 'Dosis', sans-serif;
           letter-spacing: 1px;
           color: white;
-          font-weight: lighter;
           margin: -7px 0;
-
         }
 
         .retail-location {
@@ -83,10 +89,7 @@ header {
           position: relative;
 
           p {
-            font-size: 1rem;
-            font-family: Inter, sans-serif;
             color: white;
-            margin: 0;
           }
 
           button {
@@ -224,25 +227,52 @@ header {
   flex-direction: column;
 }
 
-.atelier {
+.atelier, .search-section {
   height: 32.314814814814814814814814814815%;
   width: 100%;
   background-color: $light-blue;
   padding: 1.9% 40px 20px 40px;
+
+  h2 {
+    height: 20%;
+  }
+  .workshop, .input-container {
+    width: 100%;
+    height: 80%;
+  }
 }
 
-.search-section {
-  height: 32.314814814814814814814814814815%;
-  width: 100%;
-  background-color: $light-blue;
-  padding: 1.9% 20px 20px 20px;
+.search-result, .booked, .atelier {
+  table {
+    width: 100%;
+    height: max-content;
+    max-height: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  tr {
+    border: none;
+    height: 50px;
+  }
+
+  th, td {
+    border-right: solid 1px $light-grey;
+    text-align: left;
+  }
+
+  th:last-child, td:last-child {
+    border-right: none;
+  }
+
+  td {
+    width: max-content;
+    font-size: 1rem;
+  }
 }
 
 .atelier {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-
   .table-container {
     display: flex;
     flex-direction: column;
@@ -265,59 +295,33 @@ header {
     background-color: #88ccfd;
   }
 
-  h2 {
-    font-family: Dosis, sans-serif;
-    font-weight: lighter;
-    font-size: 2rem;
-    height: 15%;
-  }
-
   .workshop {
-    width: 100%;
-    height: 85%;
     display: flex;
     justify-content: space-between;
   }
 
   table {
-    border-collapse: collapse;
-    height: max-content;
+    background-color: transparent;
 
     tr {
-      border: none;
       height: 40px;
 
-        th {
-          font-family: Inter, sans-serif;
-          font-size: 1.5rem;
-          font-weight: normal;
-          text-align: left;
-        }
-
-        th, td {
-          border-right: solid 1px white;
-          text-align: left;
-        }
-
-        th:last-child, td:last-child {
-          border-right: none;
-        }
-
-        td {
-          width: max-content;
-          font-size: 1rem;
-          font-family: Inter, sans-serif;
-          font-weight: normal;
-        }
-
-        td:last-child {
-          padding-left: 20px;
-        }
-        td:first-child {
-          padding-right: 20px;
-        }
+      th, td {
+        border-right: solid 1px white;
+        font-family: Inter, sans-serif;
+        font-weight: normal;
+      }
       th {
+        font-size: 1.5rem;
+        text-align: left;
         border: none;
+      }
+
+      td:last-child {
+        padding-left: 20px;
+      }
+      td:first-child {
+        padding-right: 20px;
       }
     }
   }
@@ -356,15 +360,10 @@ header {
   display: flex;
 
   h2 {
-    font-family: Dosis, sans-serif;
-    font-weight: lighter;
-    font-size: 2rem;
     height: 20%;
   }
   p {
     font-size: 1.25rem;
-    font-family: Inter, sans-serif;
-    margin: 0;
   }
 
   .display-informations {
@@ -477,17 +476,10 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8%;
 
-  h2 {
-    font-family: Dosis, sans-serif;
-    font-weight: lighter;
-    font-size: 2rem;
-    margin-bottom: 8%;
-  }
   p {
     font-size: 1.25rem;
-    font-family: Inter, sans-serif;
-    margin: 0;
   }
 }
 
@@ -498,16 +490,8 @@ header {
   align-items: center;
   gap: 20px;
 
-  h2 {
-    font-family: Dosis, sans-serif;
-    font-weight: lighter;
-    font-size: 2rem;
-    text-transform: uppercase;
-  }
   p {
     font-size: 1.25rem;
-    font-family: Inter, sans-serif;
-    margin: 0;
   }
 
   .stock-stats {
@@ -547,27 +531,10 @@ header {
   gap: 20px;
 
   h2 {
-    font-size: 2rem;
-    font-family: Dosis, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-transform: uppercase;
-    font-weight: lighter;
     text-align: center;
   }
 
   table {
-    width: 100%;
-    height: max-content;
-    max-height: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    border-radius: 10px;
-
-    tr {
-      border: none;
-      height: 50px;
-
       th {
         font-size: 1.5rem;
         font-family: Inter, sans-serif;
@@ -575,13 +542,11 @@ header {
       }
 
       th, td {
-        border-right: solid 1px $light-grey;
         padding: 0 30px;
         text-align: center;
       }
 
       th:last-child, td:last-child {
-        border-right: none;
         width: 28%;
         padding-right: 10px;
       }
@@ -595,8 +560,6 @@ header {
       }
 
       td {
-        width: max-content;
-        font-size: 1rem;
         font-family: Inter, sans-serif;
         font-weight: normal;
 
@@ -627,18 +590,9 @@ header {
     }
   }
 
-}
-
 .search-section {
-  h2 {
-    height: 20%;
-    font-family: Dosis, sans-serif;
-    font-weight: lighter;
-    font-size: 2rem;
-  }
 
   .input-container {
-    height: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -656,13 +610,6 @@ header {
       align-items: center;
       padding: 0 15px;
       border-radius: 10px 0 0 10px;
-
-      p {
-        font-family: Inter, sans-serif;
-        font-size: 1rem;
-        margin: 0;
-        padding: 0;
-      }
     }
 
     input {
@@ -681,31 +628,9 @@ header {
   flex-direction: column;
 
   table {
-    width: 100%;
-    height: max-content;
-    max-height: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    border-radius: 10px;
-
-    tr {
-      border: none;
-      height: 50px;
-
       th, td {
-        border-right: solid 1px $light-grey;
         padding: 0 20px;
-        text-align: left;
       }
-
-      th:last-child, td:last-child {
-        border-right: none;
-      }
-
-      td {
-        width: max-content;
-      }
-    }
   }
 
   .error {

@@ -87,13 +87,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+#root {
+  display: flex;
+}
+
 h2 {
   margin: 0;
   padding: 0;
+  font-family: "Dosis", sans-serif;
+  font-size: 2rem;
+  font-weight: lighter;
+  text-transform: uppercase;
 }
 
-#root {
-  display: flex;
+p {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  margin: 0;
 }
 
 header {
@@ -123,11 +133,8 @@ header .user-info .display-user div {
   gap: 15px;
 }
 header .user-info .display-user div h2 {
-  font-size: 2rem;
-  font-family: "Dosis", sans-serif;
   letter-spacing: 1px;
   color: white;
-  font-weight: lighter;
   margin: -7px 0;
 }
 header .user-info .display-user div .retail-location {
@@ -135,10 +142,7 @@ header .user-info .display-user div .retail-location {
   position: relative;
 }
 header .user-info .display-user div .retail-location p {
-  font-size: 1rem;
-  font-family: Inter, sans-serif;
   color: white;
-  margin: 0;
 }
 header .user-info .display-user div .retail-location button {
   display: flex;
@@ -252,25 +256,44 @@ header nav a h3 {
   flex-direction: column;
 }
 
-.atelier {
+.atelier, .search-section {
   height: 32.3148148148%;
   width: 100%;
   background-color: #9BE7FF;
   padding: 1.9% 40px 20px 40px;
 }
-
-.search-section {
-  height: 32.3148148148%;
+.atelier h2, .search-section h2 {
+  height: 20%;
+}
+.atelier .workshop, .atelier .input-container, .search-section .workshop, .search-section .input-container {
   width: 100%;
-  background-color: #9BE7FF;
-  padding: 1.9% 20px 20px 20px;
+  height: 80%;
 }
 
-.atelier {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.search-result table, .booked table, .atelier table {
+  width: 100%;
+  height: max-content;
+  max-height: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
 }
+.search-result tr, .booked tr, .atelier tr {
+  border: none;
+  height: 50px;
+}
+.search-result th, .search-result td, .booked th, .booked td, .atelier th, .atelier td {
+  border-right: solid 1px #F0F3F5;
+  text-align: left;
+}
+.search-result th:last-child, .search-result td:last-child, .booked th:last-child, .booked td:last-child, .atelier th:last-child, .atelier td:last-child {
+  border-right: none;
+}
+.search-result td, .booked td, .atelier td {
+  width: max-content;
+  font-size: 1rem;
+}
+
 .atelier .table-container {
   display: flex;
   flex-direction: column;
@@ -291,53 +314,31 @@ header nav a h3 {
 .atelier button:hover {
   background-color: #88ccfd;
 }
-.atelier h2 {
-  font-family: Dosis, sans-serif;
-  font-weight: lighter;
-  font-size: 2rem;
-  height: 15%;
-}
 .atelier .workshop {
-  width: 100%;
-  height: 85%;
   display: flex;
   justify-content: space-between;
 }
 .atelier table {
-  border-collapse: collapse;
-  height: max-content;
+  background-color: transparent;
 }
 .atelier table tr {
-  border: none;
   height: 40px;
-}
-.atelier table tr th {
-  font-family: Inter, sans-serif;
-  font-size: 1.5rem;
-  font-weight: normal;
-  text-align: left;
 }
 .atelier table tr th, .atelier table tr td {
   border-right: solid 1px white;
-  text-align: left;
-}
-.atelier table tr th:last-child, .atelier table tr td:last-child {
-  border-right: none;
-}
-.atelier table tr td {
-  width: max-content;
-  font-size: 1rem;
   font-family: Inter, sans-serif;
   font-weight: normal;
+}
+.atelier table tr th {
+  font-size: 1.5rem;
+  text-align: left;
+  border: none;
 }
 .atelier table tr td:last-child {
   padding-left: 20px;
 }
 .atelier table tr td:first-child {
   padding-right: 20px;
-}
-.atelier table tr th {
-  border: none;
 }
 
 .dashboard, .search-result {
@@ -373,15 +374,10 @@ header nav a h3 {
   display: flex;
 }
 .informations h2 {
-  font-family: Dosis, sans-serif;
-  font-weight: lighter;
-  font-size: 2rem;
   height: 20%;
 }
 .informations p {
   font-size: 1.25rem;
-  font-family: Inter, sans-serif;
-  margin: 0;
 }
 .informations .display-informations {
   height: 100%;
@@ -480,17 +476,10 @@ header nav a h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.appointment h2 {
-  font-family: Dosis, sans-serif;
-  font-weight: lighter;
-  font-size: 2rem;
-  margin-bottom: 8%;
+  gap: 8%;
 }
 .appointment p {
   font-size: 1.25rem;
-  font-family: Inter, sans-serif;
-  margin: 0;
 }
 
 .manage-stock {
@@ -500,16 +489,8 @@ header nav a h3 {
   align-items: center;
   gap: 20px;
 }
-.manage-stock h2 {
-  font-family: Dosis, sans-serif;
-  font-weight: lighter;
-  font-size: 2rem;
-  text-transform: uppercase;
-}
 .manage-stock p {
   font-size: 1.25rem;
-  font-family: Inter, sans-serif;
-  margin: 0;
 }
 .manage-stock .stock-stats {
   display: flex;
@@ -544,81 +525,52 @@ header nav a h3 {
   gap: 20px;
 }
 .booked h2 {
-  font-size: 2rem;
-  font-family: Dosis, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-transform: uppercase;
-  font-weight: lighter;
   text-align: center;
 }
-.booked table {
-  width: 100%;
-  height: max-content;
-  max-height: 100%;
-  border-collapse: collapse;
-  background-color: white;
-  border-radius: 10px;
-}
-.booked table tr {
-  border: none;
-  height: 50px;
-}
-.booked table tr th {
+.booked table th {
   font-size: 1.5rem;
   font-family: Inter, sans-serif;
   font-weight: normal;
 }
-.booked table tr th, .booked table tr td {
-  border-right: solid 1px #F0F3F5;
+.booked table th, .booked table td {
   padding: 0 30px;
   text-align: center;
 }
-.booked table tr th:last-child, .booked table tr td:last-child {
-  border-right: none;
+.booked table th:last-child, .booked table td:last-child {
   width: 28%;
   padding-right: 10px;
 }
-.booked table tr td:first-child {
+.booked table td:first-child {
   text-align: left;
 }
-.booked table tr th:first-child, .booked table tr td:first-child {
+.booked table th:first-child, .booked table td:first-child {
   padding-left: 10px;
 }
-.booked table tr td {
-  width: max-content;
-  font-size: 1rem;
+.booked table td {
   font-family: Inter, sans-serif;
   font-weight: normal;
 }
-.booked table tr td span {
+.booked table td span {
   display: flex;
   gap: 10px;
   width: max-content;
 }
-.booked table tr td .res-ready, .booked table tr td .res-pending, .booked table tr td .res-todo {
+.booked table td .res-ready, .booked table td .res-pending, .booked table td .res-todo {
   height: 17px;
   width: 17px;
   border-radius: 50%;
 }
-.booked table tr td .res-ready {
+.booked table td .res-ready {
   background-color: #98EB8A;
 }
-.booked table tr td .res-pending {
+.booked table td .res-pending {
   background-color: #FFB951;
 }
-.booked table tr td .res-todo {
+.booked table td .res-todo {
   background-color: #FF2222;
 }
 
-.search-section h2 {
-  height: 20%;
-  font-family: Dosis, sans-serif;
-  font-weight: lighter;
-  font-size: 2rem;
-}
 .search-section .input-container {
-  height: 80%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -636,12 +588,6 @@ header nav a h3 {
   padding: 0 15px;
   border-radius: 10px 0 0 10px;
 }
-.search-section .search-field label p {
-  font-family: Inter, sans-serif;
-  font-size: 1rem;
-  margin: 0;
-  padding: 0;
-}
 .search-section .search-field input {
   outline: none;
   border: none;
@@ -655,28 +601,8 @@ header nav a h3 {
   display: flex;
   flex-direction: column;
 }
-.search-result table {
-  width: 100%;
-  height: max-content;
-  max-height: 100%;
-  border-collapse: collapse;
-  background-color: white;
-  border-radius: 10px;
-}
-.search-result table tr {
-  border: none;
-  height: 50px;
-}
-.search-result table tr th, .search-result table tr td {
-  border-right: solid 1px #F0F3F5;
+.search-result table th, .search-result table td {
   padding: 0 20px;
-  text-align: left;
-}
-.search-result table tr th:last-child, .search-result table tr td:last-child {
-  border-right: none;
-}
-.search-result table tr td {
-  width: max-content;
 }
 .search-result .error {
   text-align: center;

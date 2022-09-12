@@ -55,10 +55,6 @@ export default function Search() {
     };
     const filteredProducts = filterProducts(data, searchVendor, searchBrand, searchRef, searchColor, searchSize, searchGender, searchMaterial, searchType, searchStyle);
 
-    const memoizedFilter = useMemo(() => {
-        filterProducts()
-    }, [filterProducts])
-
     useEffect(() => {
         getData().then()
     }, []);

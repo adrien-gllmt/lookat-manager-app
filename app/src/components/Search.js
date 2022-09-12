@@ -1,5 +1,5 @@
 import axios from "axios"
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import Loader from "./Loader";
 import { normalizeStr } from "../utils";
 
@@ -55,96 +55,87 @@ export default function Search() {
     };
     const filteredProducts = filterProducts(data, searchVendor, searchBrand, searchRef, searchColor, searchSize, searchGender, searchMaterial, searchType, searchStyle);
 
+    const memoizedFilter = useMemo(() => {
+        filterProducts()
+    }, [filterProducts])
+
     useEffect(() => {
         getData().then()
     }, []);
+
+    const inputArray = [
+        {
+            "label": "Fournisseur",
+            "placeholder": "Altitude Eyewear",
+            "value": searchVendor,
+            "func": setSearchVendor
+        },
+        {
+            "label": "Marque",
+            "placeholder": "Chevignon",
+            "value": searchBrand,
+            "func": setSearchBrand
+        },
+        {
+            "label": "Référence",
+            "placeholder": "LARL3052",
+            "value": searchRef,
+            "func": setSearchRef
+        },
+        {
+            "label": "Couleur",
+            "placeholder": "NO / NOIR",
+            "value": searchColor,
+            "func": setSearchColor
+        },
+        {
+            "label": "Taille",
+            "placeholder": "50x52",
+            "value": searchSize,
+            "func": setSearchSize
+        },
+        {
+            "label": "Sexe",
+            "placeholder": "MIXTE",
+            "value": searchGender,
+            "func": setSearchGender
+        },
+        {
+            "label": "Matériau",
+            "placeholder": "Plastique",
+            "value": searchMaterial,
+            "func": setSearchMaterial
+        },
+        {
+            "label": "Type",
+            "placeholder": "Optique",
+            "value": searchType,
+            "func": setSearchType
+        },
+        {
+            "label": "Style",
+            "placeholder": "Traditionnel",
+            "value": searchStyle,
+            "func": setSearchStyle
+        }
+    ]
 
     return(
         <div className={"main"}>
             <section className={"search-section"}>
                 <h2>RECHERCHER</h2>
                 <div className={"input-container"}>
-                    <div className={"search-field"}>
-                        <label>
-                            <p className={"search-field-name"}>FOURNISSEUR</p>
-                        </label>
-                        <input type="search" placeholder="ALTITUDE EYEWEAR" value={searchVendor} onInput={(e) => {
-                            setSearchVendor(e.target.value);
-                            getData().then();
-                        }}/>
-                    </div>
-                    <div className={"search-field"}>
-                        <label>
-                            <p className={"search-field-name"}>MARQUE</p>
-                        </label>
-                        <input type="search" placeholder="AÏE" value={searchBrand} onInput={(e) => {
-                            setSearchBrand(e.target.value);
-                            getData().then();
-                        }}/>
-                    </div>
-                    <div className={"search-field"}>
-                        <label>
-                            <p className={"search-field-name"}>REFERENCE</p>
-                        </label>
-                        <input type="search" placeholder="LARL3002" value={searchRef} onInput={(e) => {
-                            setSearchRef(e.target.value);
-                            getData().then();
-                        }}/>
-                    </div>
-                    <div className={"search-field"}>
-                        <label>
-                            <p className={"search-field-name"}>COULEUR</p>
-                        </label>
-                        <input type="search" placeholder="NO / NOIR" value={searchColor} onInput={(e) => {
-                            setSearchColor(e.target.value);
-                            getData().then();
-                        }}/>
-                    </div>
-                    <div className={"search-field"}>
-                        <label>
-                            <p className={"search-field-name"}>TAILLE</p>
-                        </label>
-                        <input type="search" placeholder="50x20" value={searchSize} onInput={(e) => {
-                            setSearchSize(e.target.value);
-                            getData().then();
-                        }}/>
-                    </div>
-                    <div className={"search-field"}>
-                        <label>
-                            <p className={"search-field-name"}>SEXE</p>
-                        </label>
-                        <input type="search" placeholder="MIXTE" value={searchGender} onInput={(e) => {
-                            setSearchGender(e.target.value);
-                            getData().then();
-                        }}/>
-                    </div>
-                    <div className={"search-field"}>
-                        <label>
-                            <p className={"search-field-name"}>MATERIAU</p>
-                        </label>
-                        <input type="search" placeholder="PLASTIQUE" value={searchMaterial} onInput={(e) => {
-                            setSearchMaterial(e.target.value);
-                            getData().then();
-                        }}/>
-                    </div>
-                    <div className={"search-field"}>
-                        <label>
-                            <p className={"search-field-name"}>TYPE</p>
-                        </label>
-                        <input type="search" placeholder="OPTIQUE" value={searchType} onInput={(e) => {
-                            setSearchType(e.target.value);
-                            getData().then();
-                        }}/>
-                    </div>
-                    <div className={"search-field"}>
-                        <label>
-                            <p className={"search-field-name"}>STYLE</p>
-                        </label>
-                        <input type="search" placeholder="TRADITIONNEL" value={searchStyle} onInput={(e) => {
-                            setSearchStyle(e.target.value);
-                            getData().then();
-                        }}/>
-                    </div>
+                    {inputArray.map((field) => (
+                        <div className={"search-field"}>
+                            <label>
+                                <p className={"search-field-name"}>{field.label}</p>
+                            </label>
+                            <input type="search" placeholder={field.placeholder} value={field.value} onInput={(e) => {
+                                field.func(e.target.value);
+                                getData().then();
+                            }}/>
+                        </div>
+                    ))}
                 </div>
             </section>
 

@@ -4,6 +4,7 @@ $light-blue: #9BE7FF;
 $light-grey: #F0F3F5;
 $orange: #FF8811;
 $viewport-top-margin: 10%;
+$padding-20: 20px;
 
 @import "loader";
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400&display=swap');
@@ -227,12 +228,29 @@ header {
   flex-direction: column;
 }
 
+.dashboard, .search-result {
+  height: 67.685185185185185185185185185185%;
+  width: 100%;
+  gap: 20px;
+}
+
+.dashboard, .informations, .search-result, .appointment, .manage-stock, .booked {
+  display: flex;
+  padding: $padding-20;
+}
+
+.informations, .appointment, .booked, .manage-stock {
+  border-radius: 10px;
+  background-color: white;
+}
+
 .atelier, .search-section {
   height: 32.314814814814814814814814814815%;
   width: 100%;
   background-color: $light-blue;
   padding: 1.9% 40px 20px 40px;
-
+}
+.atelier, .search-section, .informations {
   h2 {
     height: 20%;
   }
@@ -327,41 +345,22 @@ header {
   }
 }
 
-.dashboard, .search-result {
-  height: 67.685185185185185185185185185185%;
-  width: 100%;
+.subcontainer, .container {
   display: flex;
-  padding: 20px;
+  width: max-content;
   gap: 20px;
 }
 
 .container {
-  width: max-content;
-  display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.subcontainer {
-  display: flex;
-  width: max-content;
-  gap: 20px;
 }
 
 .informations, .manage-stock {
   width: 610px;
   height: 287px;
-  background-color: white;
-  border-radius: 10px;
 }
 
 .informations {
-  padding: 20px;
-  display: flex;
-
-  h2 {
-    height: 20%;
-  }
   p {
     font-size: 1.25rem;
   }
@@ -470,10 +469,6 @@ header {
 .appointment {
   height: 287px;
   width: 287px;
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8%;
@@ -484,8 +479,6 @@ header {
 }
 
 .manage-stock {
-  padding: 20px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
@@ -521,12 +514,8 @@ header {
 }
 
 .booked {
-  padding: 20px;
   flex-grow: 1;
-  background-color: white;
-  border-radius: 10px;
   overflow-y: auto;
-  display: flex;
   flex-direction: column;
   gap: 20px;
 
@@ -591,7 +580,6 @@ header {
   }
 
 .search-section {
-
   .input-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

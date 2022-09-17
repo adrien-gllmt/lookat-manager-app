@@ -149,6 +149,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #F0F3F5;
   height: 100vh;
+  max-height: 100vh;
 }
 
 code {
@@ -363,17 +364,16 @@ header nav ul svg {
 
 .subcontainer, .container {
   display: flex;
+  height: max-content;
   width: 100%;
   gap: 10px;
 }
 
 .container {
   flex-direction: column;
-  height: 60%;
 }
 
 .subcontainer {
-  height: 48.3033593%;
   flex: 1;
 }
 
@@ -613,6 +613,39 @@ header nav ul svg {
   display: none;
 }
 
+@media all and (min-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  header nav ul svg {
+    height: 25px;
+    width: 25px;
+  }
+  .informations .shop-stats thead th {
+    font-size: 0.75rem;
+  }
+  .informations .shop-stats td {
+    font-size: 1rem;
+  }
+  .appointment p, .manage-stock p {
+    font-size: 1rem;
+  }
+  .manage-stock {
+    gap: 20px;
+  }
+  .manage-stock .stock-stats {
+    gap: 10px 0;
+  }
+  .manage-stock .display-stock-state {
+    gap: 10px;
+  }
+  .booked table th {
+    font-size: 1.2rem;
+  }
+  .booked table td {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 768px) {
   #root {
     flex-direction: row;
@@ -1047,6 +1080,7 @@ header nav ul svg {
     padding-left: 10px;
   }
   .booked table td {
+    font-size: 1rem;
     font-family: Inter, sans-serif;
     font-weight: normal;
   }

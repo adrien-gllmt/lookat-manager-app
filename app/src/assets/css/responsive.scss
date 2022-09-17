@@ -26,6 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $light-grey;
   height: 100vh;
+  max-height: 100vh;
 }
 
 code {
@@ -175,6 +176,7 @@ header {
   background-color: $light-blue;
   padding: 1.9% 40px 20px 40px;
 }
+
 .atelier, .search-section, .informations {
   h2 {
     height: 20%;
@@ -272,17 +274,18 @@ header {
 
 .subcontainer, .container {
   display: flex;
+  height: max-content;
   width: 100%;
   gap: 10px;
 }
 
 .container {
   flex-direction: column;
-  height: 60%;
+  //height: 60%;
 }
 
 .subcontainer {
-  height: 48.3033593%;
+  //height: 48.3033593%;
   flex: 1;
 }
 

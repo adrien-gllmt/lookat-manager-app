@@ -9,6 +9,51 @@ $padding-20: 20px;
 @import "loader", "responsive";
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400&display=swap');
 
+@media all and (min-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  header nav ul svg {
+    height: 25px;
+    width: 25px;
+  }
+
+  .informations .shop-stats {
+    thead th {
+      font-size: .75rem;
+    }
+    td {
+      font-size: 1rem;
+    }
+  }
+
+  .appointment p, .manage-stock p {
+    font-size: 1rem;
+  }
+
+  .manage-stock {
+    gap: 20px;
+
+    .stock-stats {
+      gap: 10px 0;
+    }
+
+    .display-stock-state {
+      gap: 10px;
+    }
+  }
+
+  .booked table {
+    th {
+      font-size: 1.2rem;
+    }
+    td {
+      font-size: 1rem;
+    }
+  }
+}
+
 @media all and (min-width: 768px) {
 
   #root {
@@ -540,6 +585,7 @@ $padding-20: 20px;
       }
 
       td {
+        font-size: 1rem;
         font-family: Inter, sans-serif;
         font-weight: normal;
 

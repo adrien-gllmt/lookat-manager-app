@@ -14,7 +14,9 @@ export default function Menu() {
     return (
         <header>
             <section className={"user-info"}>
-                <MdAccountCircle viewBox={"2 2 20 20"}/>
+                <div className={"mobile-user-bg"}>
+                    <MdAccountCircle viewBox={"2 2 20 20"}/>
+                </div>
                 <div className={"display-user"}>
                     <div>
 

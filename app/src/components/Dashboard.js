@@ -7,7 +7,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Dashboard() {
     const options = {
-        cutout: 70,
+        cutout: window.innerWidth < 768 ? 30 : 70,
         rotation: -90,
         layout: {
             padding: 0,

@@ -657,156 +657,50 @@ header nav ul svg {
     font-size: 1rem;
   }
   header {
+    background-color: #212738;
     height: 100vh;
-    width: 19.5833333333%;
-    display: block;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   header .user-info {
-    height: max-content;
-    padding: 0 20px;
-    margin-top: 10%;
+    display: flex;
+    gap: 20px;
+    height: 90px;
   }
   header .user-info .mobile-user-bg {
-    padding: 0;
+    padding: 0 5px 0 5px;
     height: 100%;
-    display: block;
-    align-items: normal;
-    background-color: inherit;
-    border-radius: 0;
-    width: auto;
+    display: flex;
+    align-items: center;
+    background-color: #F0F3F5;
+    border-radius: 0 10vh 10vh 0;
+    width: min-content;
   }
   header .user-info svg {
-    height: 99px;
-    width: 99px;
-    color: white;
+    height: 9vh;
+    width: 9vh;
+    color: black;
   }
   header .user-info .display-user {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  header .user-info .display-user div {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  header .user-info .display-user div h2 {
-    letter-spacing: 1px;
-    color: white;
-    margin: -7px 0;
-  }
-  header .user-info .display-user div .retail-location {
-    flex-direction: row;
-    position: relative;
-  }
-  header .user-info .display-user div .retail-location p {
-    color: white;
-  }
-  header .user-info .display-user div .retail-location button {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    border: none;
-  }
-  header .user-info .display-user div .retail-location button svg {
-    cursor: pointer;
-    height: 12px;
-    width: 12px;
-  }
-  header .user-info .display-user div .retail-location ul {
-    top: 20px;
-    left: -10px;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    background-color: #3b4560;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  header .user-info .display-user div .retail-location ul li {
-    height: 30px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-  header .user-info .display-user div .retail-location ul li p {
-    height: 100%;
-    width: 100%;
-    padding: 5px 10px;
-  }
-  header .user-info .display-user div .retail-location ul .active-option {
-    background-color: #FF8811;
-  }
-  header .user-info .display-user .settings {
-    flex-direction: row;
-    gap: 20px;
-  }
-  header .user-info .display-user .settings svg {
-    cursor: pointer;
-    height: 19px;
-    width: 19px;
-    color: #FF8811;
+    display: none;
   }
   header nav {
-    margin-top: 86px;
-    width: auto;
+    flex: 1;
+    width: 100%;
   }
   header nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: initial;
-    justify-items: initial;
-  }
-  header nav ul h3 {
-    display: block;
-  }
-  header nav ul .menu-selected {
-    background-color: #9BE7FF;
-  }
-  header nav ul .menu-selected svg {
-    color: #212738;
-  }
-  header nav ul .menu-selected h3 {
-    color: #212738;
-  }
-  header nav ul a:not(.menu-selected):hover svg {
-    transition: color 0.2s ease-in-out;
-    color: #9BE7FF;
-  }
-  header nav ul a:not(.menu-selected):hover h3 {
-    color: #9BE7FF;
-    transition: color 0.2s ease-in-out;
-  }
-  header nav ul a {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: initial;
-    gap: 20px;
-    height: 50px;
-    width: 100%;
-    padding-left: 25%;
-  }
-  header nav ul a svg {
-    transition: color 0.2s ease-in-out;
-    color: white;
-    height: 20px;
-    width: 20px;
-  }
-  header nav ul a h3 {
-    transition: color 0.2s ease-in-out;
-    color: white;
-    font-weight: normal;
-    font-family: Inter, sans-serif;
-    font-size: 1.25rem;
-    margin: 0;
+    height: 100%;
     padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    align-items: center;
+    justify-items: center;
   }
   .main {
     height: 100vh;

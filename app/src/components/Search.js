@@ -1,10 +1,13 @@
-import axios from "axios"
-import {useEffect, useState} from "react";
+import axios from "axios";
+import React, {useEffect, useState} from "react";
 import Loader from "./Loader";
 import { normalizeStr } from "../utils";
+import {MdEditNote} from 'react-icons/md';
+import Modal from "./Modal";
 
 export default function Search() {
     const [data, setData] = useState(null);
+    const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchVendor, setSearchVendor] = useState('');
@@ -17,9 +20,20 @@ export default function Search() {
     const [searchType, setSearchType] = useState('');
     const [searchStyle, setSearchStyle] = useState('');
 
+    async function getProduct(id) {
+        try {
+            const response = await axios.get(`https://api.adrien-guillemot.fr:8090/api/products/${id.product_id}`);
+            console.log(response.data);
+            setProduct(response.data);
+            setError(null);
+        } catch (err) {
+            setError(err.message);
+        }
+    }
+
     async function getData() {
         try {
-            const response = await axios.get(`http://localhost:8090/api/products`);
+            const response = await axios.get(`https://api.adrien-guillemot.fr:8090/api/products`);
             console.log(response);
             setData(response.data);
             setError(null);
@@ -117,6 +131,7 @@ export default function Search() {
     ]
 
     return(
+        <>
         <div className={"main"}>
             <section className={"search-section"}>
                 <h2>RECHERCHER</h2>
@@ -167,6 +182,7 @@ export default function Search() {
                             <td>{product_style}</td>
                             <td>{product_avail}</td>
                             <td>{product_booked}</td>
+                            <td><MdEditNote viewBox={"2 2 20 20"} onClick={() => {getProduct({product_id}).then()}} /></td>
                         </tr>
                     ))}
                     </tbody>
@@ -180,5 +196,6 @@ export default function Search() {
                 {error && (<div className={"error"}>Une erreur est survenue lors du chargement des données - <span className={"search-error"}>{error}</span></div>)}
             </section>
         </div>
+        </>
     );
 }

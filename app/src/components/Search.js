@@ -22,7 +22,7 @@ export default function Search() {
 
     async function getProduct(id) {
         try {
-            const response = await axios.get(`https://api.adrien-guillemot.fr:8090/api/products/${id.product_id}`);
+            const response = await axios.get(`http://localhost:8090/api/products/${id.product_id}`);
             console.log(response.data);
             setProduct(response.data);
             setError(null);
@@ -33,7 +33,7 @@ export default function Search() {
 
     async function getData() {
         try {
-            const response = await axios.get(`https://api.adrien-guillemot.fr:8090/api/products`);
+            const response = await axios.get(`http://localhost:8090/api/products`);
             console.log(response);
             setData(response.data);
             setError(null);

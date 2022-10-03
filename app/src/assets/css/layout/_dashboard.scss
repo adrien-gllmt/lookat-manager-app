@@ -1,0 +1,404 @@
+@import "../abstracts/variables";
+
+.dashboard {
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+}
+
+.dashboard, .informations, .appointment, .manage-stock, .booked {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.informations, .appointment, .booked, .manage-stock {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.atelier, .informations {
+  h2 {
+    height: 20%;
+  }
+  .workshop {
+    width: 100%;
+    height: 80%;
+  }
+}
+
+.subcontainer, .container {
+  display: flex;
+  height: max-content;
+  width: 100%;
+  gap: 10px;
+}
+
+.container {
+  flex-direction: column;
+  //height: 60%;
+}
+
+.subcontainer {
+  //height: 48.3033593%;
+  flex: 1;
+}
+
+.informations {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+
+  p {
+    font-size: 1rem;
+  }
+
+  .display-informations {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+  }
+
+  .today-chart {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.tiles-container {
+  height: 287px;
+  width: 287px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  gap: 20px;
+
+  div {
+    background-color: white;
+    height: 133.5px;
+    width: 133.5px;
+    border-radius: 10px;
+    transition: background-color 0.4s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      height: 100%;
+      width: 100%;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    svg {
+      color: $dark-blue;
+      height: 90px;
+      width: 90px;
+      transition: color 0.4s ease-in-out;
+    }
+  }
+
+  div:hover {
+    cursor: pointer;
+    background-color: $dark-blue;
+    transition: background-color 0.4s ease-in-out;
+
+    svg {
+      color: $light-blue;
+      transition: color 0.4s ease-in-out;
+    }
+  }
+}
+
+.appointment, .manage-stock {
+  p {
+    font-size: .7rem;
+  }
+}
+
+.appointment {
+  height: 100%;
+  width: 40%;
+  flex-direction: column;
+  align-items: center;
+  gap: 8%;
+  text-align: center;
+}
+
+.manage-stock {
+  height: 100%;
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  .stock-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 0;
+  }
+
+  .display-stock-state {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    div {
+      width: max-content;
+      background-color: $light-grey;
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+  }
+}
+
+.booked {
+  flex-grow: 1;
+  overflow-y: auto;
+  flex-direction: column;
+  gap: 10px;
+
+  h2 {
+    text-align: center;
+  }
+
+  span {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+  }
+
+  .res-ready, .res-pending, .res-todo {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+  }
+
+  .res-ready {
+    background-color: #98EB8A;
+  }
+
+  .res-pending {
+    background-color: #FFB951;
+  }
+
+  .res-todo {
+    background-color: #FF2222;
+  }
+}
+
+.display-user, .tiles-container {
+  display: none;
+}
+
+@media all and (min-width: 480px) {
+  .appointment p, .manage-stock p {
+    font-size: 1rem;
+  }
+
+  .manage-stock {
+    gap: 20px;
+
+    .stock-stats {
+      gap: 10px 0;
+    }
+
+    .display-stock-state {
+      gap: 10px;
+    }
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .dashboard, .informations, .appointment, .manage-stock, .booked {
+    display: flex;
+    padding: $padding-20;
+  }
+
+  .dashboard {
+    height: 67.685185185185185185185185185185%;
+    width: 100%;
+    gap: 20px;
+    flex-direction: row;
+  }
+
+  .subcontainer, .container {
+    display: flex;
+    width: max-content;
+    gap: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .informations, .manage-stock {
+    width: 610px;
+    height: 287px;
+  }
+
+  .informations {
+    p {
+      font-size: 1.25rem;
+    }
+
+    .display-informations {
+      height: 100%;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      gap: 2%;
+    }
+
+    .today-chart {
+      width: 80%;
+      height: 80%;
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  .tiles-container {
+    height: 287px;
+    width: 287px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 20px;
+
+    div {
+      background-color: white;
+      height: 133.5px;
+      width: 133.5px;
+      border-radius: 10px;
+      transition: background-color 0.4s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      svg {
+        color: $dark-blue;
+        height: 90px;
+        width: 90px;
+        transition: color 0.4s ease-in-out;
+      }
+    }
+
+    div:hover {
+      cursor: pointer;
+      background-color: $dark-blue;
+      transition: background-color 0.4s ease-in-out;
+
+      svg {
+        color: $light-blue;
+        transition: color 0.4s ease-in-out;
+      }
+    }
+  }
+
+  .manage-stock {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    p {
+      font-size: 1.25rem;
+    }
+
+    .stock-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 0;
+    }
+
+    .display-stock-state {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      div {
+        width: max-content;
+        background-color: $light-grey;
+        padding: 10px 20px;
+        border-radius: 10px;
+
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .appointment {
+    height: 287px;
+    width: 287px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8%;
+
+    p {
+      font-size: 1.25rem;
+    }
+  }
+
+  .booked {
+    flex-grow: 1;
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 20px;
+
+    h2 {
+      text-align: center;
+    }
+
+    span {
+      display: flex;
+      gap: 10px;
+      width: max-content;
+    }
+
+    .res-ready, .res-pending, .res-todo {
+      height: 17px;
+      width: 17px;
+      border-radius: 50%;
+    }
+  }
+
+  .informations .shop-stats {
+    height: auto;
+  }
+
+  .tiles-container, .appointment {
+    display: none;
+  }
+}
+
+@media all and (min-width: 1536px) {
+  .tiles-container {
+    display: grid;
+  }
+
+  .appointment {
+    display: flex;
+  }
+}

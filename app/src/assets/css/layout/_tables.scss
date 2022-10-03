@@ -1,0 +1,280 @@
+@import "../abstracts/variables";
+
+.search-result, .booked, .atelier {
+  table {
+    width: 100%;
+    height: max-content;
+    max-height: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  tr {
+    border: none;
+    height: 30px;
+  }
+
+  th, td {
+    border-right: solid 1px $light-grey;
+    text-align: left;
+  }
+
+  th:last-child, td:last-child {
+    border-right: none;
+  }
+
+  td {
+    width: max-content;
+    font-size: 1rem;
+  }
+}
+
+.atelier {
+  table {
+    background-color: transparent;
+
+    tr {
+      height: 40px;
+
+      th, td {
+        border-right: solid 1px white;
+        font-family: Inter, sans-serif;
+        font-weight: normal;
+      }
+      th {
+        font-size: 1.5rem;
+        text-align: left;
+        border: none;
+      }
+
+      td:last-child {
+        padding-left: 20px;
+      }
+      td:first-child {
+        padding-right: 20px;
+      }
+    }
+  }
+}
+
+.informations {
+  .shop-stats {
+    height: 100%;
+    width: 60%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+
+    thead th {
+      font-size: .5rem;
+      font-family: Inter, sans-serif;
+      font-weight: normal;
+      text-align: center;
+    }
+
+    td {
+      font-size: .75rem;
+      font-family: Inter, sans-serif;
+      font-weight: normal;
+      text-align: center;
+    }
+
+    td:first-child {
+      padding-right: 7%;
+      text-align: right;
+    }
+
+    td:nth-child(2) {
+      background-color: $light-grey;
+      border-radius: 10px 0 0 10px;
+      width: 25%;
+    }
+
+    td:last-child {
+      background-color: $light-grey;
+      border-radius: 0 10px 10px 0;
+      width: 25%;
+    }
+  }
+}
+
+.booked {
+  table {
+    th {
+      font-size: 1rem;
+      font-family: Inter, sans-serif;
+      font-weight: normal;
+    }
+
+    th, td {
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    th:last-child, td:last-child {
+      width: 28%;
+      padding-right: 10px;
+    }
+
+    td:first-child {
+      text-align: left;
+    }
+
+    th:first-child, td:first-child {
+      padding-left: 10px;
+    }
+
+    td {
+      font-family: Inter, sans-serif;
+      font-weight: normal;
+      font-size: .7rem;
+    }
+  }
+}
+
+.search-result {
+  table {
+    th, td {
+      padding: 0 20px;
+    }
+  }
+}
+
+@media all and (min-width: 480px) {
+  .informations .shop-stats {
+    thead th {
+      font-size: .75rem;
+    }
+    td {
+      font-size: 1rem;
+    }
+  }
+
+  .booked table {
+    th {
+      font-size: 1.2rem;
+    }
+    td {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .shop-stats {
+    height: 100%;
+    width: 60%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+
+    thead th {
+      font-size: 1rem;
+      font-family: Inter, sans-serif;
+      font-weight: normal;
+      text-align: center;
+    }
+
+    td {
+      font-size: 1.5rem;
+      font-family: Inter, sans-serif;
+      font-weight: normal;
+      text-align: center;
+    }
+
+    td:first-child {
+      padding-right: 7%;
+      text-align: right;
+    }
+
+    td:nth-child(2) {
+      background-color: $light-grey;
+      border-radius: 10px 0 0 10px;
+      width: 25%;
+    }
+
+    td:last-child {
+      background-color: $light-grey;
+      border-radius: 0 10px 10px 0;
+      width: 25%;
+    }
+  }
+
+  .booked {
+    table {
+      th {
+        font-size: 1.2rem;
+        font-family: Inter, sans-serif;
+        font-weight: normal;
+      }
+
+      th, td {
+        padding: 0 30px;
+        text-align: center;
+      }
+
+      th:last-child, td:last-child {
+        width: 28%;
+        padding-right: 10px;
+      }
+
+      td:first-child {
+        text-align: left;
+      }
+
+      th:first-child, td:first-child {
+        padding-left: 10px;
+      }
+
+      td {
+        font-family: Inter, sans-serif;
+        font-weight: normal;
+        font-size: .85rem;
+      }
+    }
+  }
+
+  .search-result tr {
+    height: 50px;
+  }
+}
+
+@media all and (min-width: 1536px) {
+  .booked tr {
+    height: 50px;
+
+    th:nth-child(2), td:nth-child(2) {
+      display: none;
+    }
+  }
+
+  .informations .shop-stats {
+    min-width: 100px;
+
+    td {
+      width: 33%;
+
+      &:first-child {
+        width: 20%;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1660px) {
+  .booked {
+    table {
+      th {
+        font-size: 1.5rem;
+      }
+
+      td {
+        font-family: Inter, sans-serif;
+        font-weight: normal;
+        font-size: 1rem;
+      }
+    }
+    & tr th:nth-child(2), & tr td:nth-child(2) {
+      display: table-cell;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@import "../abstracts/variables";
+
+.atelier {
+  height: 32.314814814814814814814814814815%;
+  width: 100%;
+  background-color: $light-blue;
+  padding: 1.9% 40px 20px 40px;
+}
+
+.atelier {
+  .table-container {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: #88e2fd;
+    border: 1px solid #6db1ff;
+    font-size: 1rem;
+    font-family: Inter, sans-serif;
+    padding: 3px 20px;
+    border-radius: 15px;
+    width: max-content;
+  }
+  button:hover {
+    background-color: #88ccfd;
+  }
+
+  .workshop {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.atelier {
+  display: none;
+}
+
+@media all and (min-width: 1280px) {
+  .atelier {
+    display: block;
+  }
+}

@@ -52,27 +52,43 @@ exports.findAll = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while retrieving tutorials."
+                    err.message || "Some error occurred while retrieving products."
             });
         });
 };
-// Find a single Tutorial with an id
+// Find a single Product with an id
 exports.findOne = (req, res) => {
+    const id = req.params.id;
 
+    Product.findByPk(id)
+        .then(data => {
+            if (data) {
+                res.send(data);
+            } else {
+                res.status(404).send({
+                    message: `Cannot find Product with id=${id}.`
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error retrieving Product with id=" + id
+            });
+        });
 };
-// Update a Tutorial by the id in the request
+// Update a Product by the id in the request
 exports.update = (req, res) => {
 
 };
-// Delete a Tutorial with the specified id in the request
+// Delete a Product with the specified id in the request
 exports.delete = (req, res) => {
 
 };
-// Delete all Tutorials from the database.
+// Delete all Products from the database.
 exports.deleteAll = (req, res) => {
 
 };
-// Find all published Tutorials
+// Find all published Products
 exports.findAllPublished = (req, res) => {
 
 };
